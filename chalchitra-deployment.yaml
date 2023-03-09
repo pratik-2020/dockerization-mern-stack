@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion : apps/v1
+metadata:
+  name: chalchitra
+  label:
+    app: chalchitra
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: chalchitra
+    template:
+      metadata:
+        label:
+          app: chalchitra
+      spec:
+        containers:
+        - name: web-server
+          image: thanos10122001/chalchitra
+          ports:
+          - containerPort: 3000
